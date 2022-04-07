@@ -1,0 +1,4 @@
+UPDATE country_vaccination_stats.csv
+set daily_vaccinations = (select avg(daily_vaccinations) from country_vaccination_stats.csv
+                          group by country)
+where daily_vaccinations is null
